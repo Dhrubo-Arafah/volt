@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%load static%}
+{% load crispy_forms_tags %}
+{% block title %}Register Form{% endblock %}
+{%block content%}
+
+<div class="d-flex flex-column-reverse flex-md-row row row-cols-1 row-cols-md-2">
+    <div class="col">
+        <h1>Become A Member</h1>
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        <br>
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form | crispy}}
+            <br>
+            <input type="submit" value="Save" class="btn btn-outline-primary ">
+            <br><br>
+            Already Have Account ? <a href="{% url 'login'%}">Login</a>
+        </form>
+    </div>
+   <div class="col">
+        <img src="{% static 'image/user-registration.png'%}" alt="Register Image" class="img-fluid">
+   </div>
+</div>
+{%endblock content%}

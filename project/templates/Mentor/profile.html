@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{%load static%}
+{% load crispy_forms_tags %}
+{% block title %}{{request.user.username}}{% endblock %}
+{% block content %}
+<section>
+    <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between mb-5">
+        <h1>Mentor Profile</h1>
+        <div>
+            <a class="btn btn-warning" href="{% url 'mentor_update' mentor.id %}">Update Profile</a>
+            <a href="" class="btn btn-danger">Delete Mentor Account</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-4 col-lg-4 text-center card">
+            <div class="card-body">
+                <img src="{{mentor.image.url}}" alt="image" class="img-fluid">
+            </div>
+            <div class="card-footer"><h3>{{mentor.user.username}}</h3></div>
+        </div>
+        <div class="col-12 col-md-8 col-lg-8">
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <th scope="row">ID</th>
+                    <td scope="row">{{mentor.id}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td scope="row">{{request.user.first_name}} {{request.user.last_name}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td scope="row">{{request.user.email}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Date Joined</th>
+                    <td scope="row">{{mentor.date_joined}}</td>
+                </tr>
+                <tr>
+                    <th scope="col">Occupation</th>
+                    <td scope="col">{{mentor.occupation}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Organization</th>
+                    <td scope="row">{{mentor.organization}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Courses</th>
+                    <td scope="row"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

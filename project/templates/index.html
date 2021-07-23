@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block title %}Home{% endblock %}
+{%block content%}
+<section class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+    <div class="col"></div>
+    <div class="col">
+        <div class="mentor">
+            <a href="{% url 'become_a_mentor'%}" class="btn btn-primary w-100">Become A Mentor</a>
+            <a href="{% url 'mentor_detail_view' request.user.mentor.id%}">Go to Mentor Profile</a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="student">
+            <a href="" class="btn btn-primary w-100">Become A Student</a>
+        </div>
+    </div>
+
+</section>
+{%endblock%}
